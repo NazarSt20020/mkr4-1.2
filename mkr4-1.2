@@ -1,0 +1,39 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        int sum = 0;
+        Random rand = new Random(); 
+        Console.Write("введіть мінімальне значення: ");
+        int min = int.Parse(Console.ReadLine());
+        Console.Write("введіть максимальне значення: ");
+        int max = int.Parse(Console.ReadLine());
+        Console.Write("введіть к-ть рядків: ");
+        int m = int.Parse(Console.ReadLine());
+        Console.Write("введіть к-ть стовбців: ");
+        int m = int.Parse(Console.ReadLine());
+        int[,] arr = new int[m, m];
+        Console.WriteLine("масив:");
+        for (int i = 0; i < m; i++)
+        {
+            for (int k = 0; k < m; k++)
+            {
+                arr[i, k] = rand.Next(min, max + 1);
+                Console.Write(arr[i, k] + " ");
+            }
+            Console.WriteLine();
+        }
+        for (int i = 0; i < m; i++)
+        {
+            for (int k = 0; k < m; k++)
+            {
+                sum += arr[k, i];       //знаходимо суму всіх елементів стовбчика
+            }
+            Console.WriteLine();
+            Console.WriteLine("Сумма " + (i + 1) + " стовбця дорівнює " + sum);     //виводим суму стовбчика
+            sum = 0;    //обнуляєм
+        }
+        Console.ReadKey();
+    }
+}
